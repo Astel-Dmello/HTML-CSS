@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+.input-container {
+    margin-top: 20px;
+}
+
+button {
+    margin-top: 10px;
+}
+
+#qrCode {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    max-width: 100%;
+}
