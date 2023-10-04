@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .metric {
+            font-size: 24px;
+            margin: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fitness Tracker</h1>
+    <div class="metric">
+        <p>Steps taken today: <span id="stepCount">0</span></p>
+        <button id="incrementSteps">Add Step</button>
+    </div>
+    <div class="metric">
+        <p>Calories burned: <span id="caloriesBurned">0</span> kcal</p>
+        <button id="addCalories">Add Calories</button>
+    </div>
+    <div class="metric">
+        <p>Distance traveled: <span id="distance">0</span> miles</p>
+        <button id="addDistance">Add Distance</button>
+    </div>
+
+    <script>
+        // Initialize metrics
+        let stepCount = 0;
+        let caloriesBurned = 0;
+        let distance = 0;
+
+        // Get the HTML elements
+        const stepCountElement = document.getElementById('stepCount');
+        const caloriesBurnedElement = document.getElementById('caloriesBurned');
+        const distanceElement = document.getElementById('distance');
+
+        const incrementStepsButton = document.getElementById('incrementSteps');
+        const addCaloriesButton = document.getElementById('addCalories');
+        const addDistanceButton = document.getElementById('addDistance');
+
+        // Function to update and display step count
+        function updateStepCount() {
+            stepCount++;
+            stepCountElement.textContent = stepCount;
+        }
+
+        // Function to update and display calories burned
+        function updateCaloriesBurned() {
+            caloriesBurned += 10; // Assuming 10 calories burned per click
+            caloriesBurnedElement.textContent = caloriesBurned;
+        }
+
+        // Function to update and display distance
+        function updateDistance() {
+            distance += 0.1; // Assuming 0.1 mile per click
+            distanceElement.textContent = distance.toFixed(1);
+        }
+
+        // Event listeners for buttons
+        incrementStepsButton.addEventListener('click', updateStepCount);
+        addCaloriesButton.addEventListener('click', updateCaloriesBurned);
+        addDistanceButton.addEventListener('click', updateDistance);
+    </script>
+</body>
+</html>

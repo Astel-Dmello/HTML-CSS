@@ -1,0 +1,40 @@
+<!DOCTYPE html> <html lang="en">
+ <head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initialscale=1.0">
+ <title>chap 03 6</title>
+ </head>
+ <body>
+     <form action="" method="get">
+        <label for="name" class="l1">Name</label>
+         <input type="text" id="name" value="">
+    <br><br>
+             <label for="m_name" class="l1">Middlename</label><input type="text" id="m_name" value="">
+             <br><br>
+            <label for="s_name" class="l1">Surname</label> <input type="text" id="s_name" value="">
+<br><br>
+<button type="button" id="sbmt">Submit</button> <p id="email"></p>
+</form> <script>
+s_btn = document.getElementById("sbmt")
+ s_btn.addEventListener("click", myFunc, false)
+
+ function myFunc(){
+ name_s = document.getElementById("name")
+ m_name_s = document.getElementById("m_name")
+ s_name_s = document.getElementById("s_name")
+ for(i = 0; i < 3; i++){
+ document.getElementsByTagName("label")[i].style.color = "red"}
+
+ name_s.disabled = true
+ m_name_s.disabled = true
+ s_name_s.disabled = true
+
+a = name_s.value
+ b = m_name_s.value
+c = s_name_s.value
+ document.getElementById("email").innerHTML =a.toLowerCase() +"." + c.toLowerCase() +"@msbte.com"
+ }
+</script>
+ </body>
+ </html>
