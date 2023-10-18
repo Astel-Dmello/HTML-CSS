@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            border: 2px solid black;
+            border-radius: 50%;
+        }
+
+        .marble {
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .orange-marble {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="marbleContainer">
+    </div>
+
+    <script>
+        const container = document.getElementById("marbleContainer");
+        const marbles = [];
+        let animationInterval;
+
+        function createMarble(angle) {
+            const marble = document.createElement("div");
+            marble.className = "marble";
+            marble.style.left = `${200 + 150 * Math.cos(angle)}px`;
+            marble.style.top = `${200 + 150 * Math.sin(angle)}px`;
+
+            return marble;
+        }
+
+        function rotateMarbles() {
+            const orangeMarble = document.createElement("div");
+            orangeMarble.className = "marble orange-marble";
+            let angle = 0;
+
+            if (marbles.length === 0) {
+                container.appendChild(orangeMarble);
+            } else {
+                angle = (2 * Math.PI * (marbles.length % 360)) / 360;
+                orangeMarble.style.left = `${200 + 150 * Math.cos(angle)}px`;
+                orangeMarble.style.top = `${200 + 150 * Math.sin(angle)}px`;
+                container.appendChild(orangeMarble);
+            }
+
+            marbles.push(orangeMarble);
+
+            animationInterval = setInterval(() => {
+                angle += (2 * Math.PI) / 360;
+                if (angle >= 2 * Math.PI) {
+                    angle = 0;
+                }
+
+                marbles[0].style.left = `${200 + 150 * Math.cos(angle)}px`;
+                marbles[0].style.top = `${200 + 150 * Math.sin(angle)}px`;
+
+                marbles.push(marbles.shift());
+            }, 1000);
+        }
+
+        container.addEventListener("mouseenter", () => {
+            clearInterval(animationInterval);
+        });
+
+        container.addEventListener("mouseleave", () => {
+            rotateMarbles();
+        });
+
+        rotateMarbles();
+    </script>
+</body>
+</html>

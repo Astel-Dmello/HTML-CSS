@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>isFinite() Implementation</title>
+</head>
+<body>
+  <h1>isFinite() Implementation</h1>
+
+  <p>Check if a value is finite:</p>
+  <input type="text" id="inputValue" placeholder="Enter a value">
+  <button onclick="checkIsFinite()">Check</button>
+  <p id="result"></p>
+
+  <script>
+    function checkIsFinite() {
+      var inputValue = document.getElementById("inputValue").value;
+      var resultElement = document.getElementById("result");
+
+      if (isFinite(inputValue)) {
+        resultElement.textContent = "The input is a finite number.";
+      } else {
+        resultElement.textContent = "The input is not a finite number.";
+      }
+    }
+  </script>
+</body>
+</html>

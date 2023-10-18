@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>eval() Implementation</title>
+</head>
+<body>
+  <h1>eval() Implementation</h1>
+
+  <p>This program will evaluate a predefined JavaScript expression:</p>
+
+  <button onclick="evaluateExpression()">Evaluate</button>
+  <p id="result"></p>
+
+  <script>
+    function evaluateExpression() {
+      var expression = "2 + 2"; // Predefined expression
+      var resultElement = document.getElementById("result");
+
+      var result = eval(expression);
+      resultElement.textContent = "Result: " + result;
+    }
+  </script>
+</body>
+</html>
